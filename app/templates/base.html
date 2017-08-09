@@ -1,0 +1,21 @@
+<html>
+	<head>
+		{% if title %}
+		<title>{{title}} - Finpedia</title>
+		{% else %}
+		<title> Welcome to Finpedia </title>
+		{% endif %}
+	</head>
+	<body>
+		<!--<div>Finpedia:<a href="/login">Start to Search</a></div>-->
+		<hr>
+		{% with messages = get_flashed_messages() %}
+		{% if messages %}
+		<ul>
+		{% for message in messages %}
+			<p><font color="#28004D"> {{message}} </font></p>
+		{% endfor %}
+		</ul>
+		{% endif %}
+		{% endwith %}
+		{% block content %}{% endblock %}
